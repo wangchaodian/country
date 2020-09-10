@@ -1,0 +1,127 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.anthony.apiauto</groupId>
+  <artifactId>API_AutoFramewrok_Demo</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <name>API_AutoFramewrok_Demo</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+
+  <dependencies>
+  
+   <dependency>
+  		<groupId>org.apache.httpcomponents</groupId>
+  		<artifactId>httpclient</artifactId>
+ 		 <version>4.5.5</version>
+	</dependency>
+	
+	<dependency>
+  		<groupId>org.apache.httpcomponents</groupId>
+  		<artifactId>httpcore</artifactId>
+ 		 <version>4.4.9</version>
+	</dependency>
+	
+        <dependency>
+            <groupId>com.vimalselvam</groupId>
+            <artifactId>testng-extentsreport</artifactId>
+            <version>1.3.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.aventstack</groupId>
+            <artifactId>extentreports</artifactId>
+            <version>3.1.5</version>
+        </dependency>
+	
+	<dependency>
+  		<groupId>org.testng</groupId>
+  		<artifactId>testng</artifactId>
+ 		 <version>6.14.3</version>
+
+	</dependency>
+	
+	<dependency>
+  		<groupId>com.alibaba</groupId>
+  		<artifactId>fastjson</artifactId>
+ 		 <version>1.2.47</version>
+	</dependency>
+	
+	   <dependency>
+  		<groupId>org.apache.poi</groupId>
+  		<artifactId>poi</artifactId>
+ 		 <version>3.17</version>
+	</dependency>
+	
+	<dependency>
+  		<groupId>org.apache.poi</groupId>
+  		<artifactId>poi-ooxml</artifactId>
+ 		 <version>3.17</version>
+	</dependency>
+	
+	<dependency>
+  		<groupId>org.apache.poi</groupId>
+  		<artifactId>poi-ooxml-schemas</artifactId>
+ 		 <version>3.17</version>
+	</dependency>
+	
+	<dependency>
+   		<groupId>log4j</groupId>
+  		<artifactId>log4j</artifactId>
+   		<version>1.2.7</version>
+	</dependency>
+	
+	<dependency>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-compiler-plugin</artifactId>
+    <version>3.5.1</version>
+</dependency>
+	
+  </dependencies>
+ 
+ 
+  
+ <!-- build构建 -->
+<build>
+	<plugins>
+		<!-- maven-surefire-plugin执行test测试包 -->
+		<plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-surefire-plugin</artifactId>
+			<version>2.20.1</version>
+	<configuration>
+	 <reuseForks>false</reuseForks>
+         <forkCount>1</forkCount>
+         <argLine>-Xmx1024m -XX:MaxPermSize=256m -Dfile.encoding=UTF-8 -Xverify:none</argLine>
+         <additionalClasspathElements>
+             <additionalClasspathElement>${basedir}/src/main/webapp/‌WEB-INF/</additionalClasspathElement>
+         </additionalClasspathElements>
+<!-- maven test 执行testng.xml -->
+	<suiteXmlFiles>
+		<suiteXmlFile>testNg.xml</suiteXmlFile>
+	</suiteXmlFiles>
+	</configuration>
+</plugin>
+
+<plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-compiler-plugin</artifactId>
+    <version>3.5.1</version>
+    
+    <configuration>
+        <source>1.8</source> <!-- 源代码使用的开发版本 -->
+        <target>1.8</target> <!-- 需要生成的目标class文件的编译版本 -->    
+    </configuration>
+</plugin>
+ 
+</plugins>
+</build>
+
+</project>

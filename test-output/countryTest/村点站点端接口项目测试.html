@@ -1,0 +1,93 @@
+<html>
+<head>
+<title>TestNG:  村点站点端接口项目测试</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>村点站点端接口项目测试</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>1/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Thu Jul 30 11:25:54 CST 2020</td>
+</tr>
+<tr><td>Total time:</td><td>1 seconds (1893 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.qa.tests.test.loginTest()'><b>loginTest</b><br>Test class: com.qa.tests.test<br/>
+<a href="#Output-351962798" onClick='toggleBox("Output-351962798", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-351962798" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-351962798">
+响应字符串***********：{"code":0,"data":{"age":1,"areaId":510107007,"birthday":"2019-01","created":"2019-11-27 14:25:39","deleteStatus":false,"education":"小学","employeeAttributes":"其他","gender":false,"iconUrl":"http://file.ycdatas.com/oss/image/datafile2017.oss-cn-hangzhou-internal.aliyuncs.com/country/ebed3d451d344234b1277c79ebf4b340.jpeg","id":217,"isAnswerd":true,"isDisable":false,"relName":"我们","siteName":"哈哈哈哈11军事基地","tel":"15680366537","token":"eyJhbGciOiJIUzUxMiJ9.eyJzeXN0ZW1UeXBlIjoiMSIsInNpdGVJZCI6MzYwOTY4LCJ1c2VydHlwZSI6IlVTRVIiLCJ1c2VySWQiOjIxNywiY3JlYXRlZCI6MTU5NjA3OTcxNDI0MSwidXNlcm5hbWUiOiIxNTY4MDM2NjUzNyJ9.3rp11G3xoOSHSMrLIYa_0Hn9iVhnHGM8rCwwAlrxMhldA2eksw1RcbZcKeXRqfkIR1BAdiP-F-zuTXgUcR7sRQ","userType":"站长","volk":"汉族"},"desc":"成功!"}<br/>
+状态码***********：200<br/>
+接口地址： http://192.168.1.222:8099/gateWay/client/countryApi/user/login<br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>com.qa.tests.test@10bdf5e5</td></tr>
+</table><p>
+</body>
+</html>
