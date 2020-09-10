@@ -2,26 +2,26 @@
 <testng-results skipped="0" failed="0" total="2" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="13753" started-at="2020-09-10T03:42:04Z" finished-at="2020-09-10T03:42:18Z">
+  <suite name="Default suite" duration-ms="3649" started-at="2020-09-10T09:42:53Z" finished-at="2020-09-10T09:42:56Z">
     <groups>
       <group name="user_get">
-        <method signature="CountryTests.getUserTest()[pri:0, instance:com.qa.tests.CountryTests@6eebc39e]" name="getUserTest" class="com.qa.tests.CountryTests"/>
+        <method signature="CountryTests.getUserTest()[pri:0, instance:com.qa.tests.CountryTests@36d4b5c]" name="getUserTest" class="com.qa.tests.CountryTests"/>
       </group> <!-- user_get -->
       <group name="user_post">
-        <method signature="CountryTests.loginTest()[pri:0, instance:com.qa.tests.CountryTests@6eebc39e]" name="loginTest" class="com.qa.tests.CountryTests"/>
+        <method signature="CountryTests.loginTest()[pri:0, instance:com.qa.tests.CountryTests@36d4b5c]" name="loginTest" class="com.qa.tests.CountryTests"/>
       </group> <!-- user_post -->
     </groups>
-    <test name="Default test" duration-ms="13753" started-at="2020-09-10T03:42:04Z" finished-at="2020-09-10T03:42:18Z">
+    <test name="Default test" duration-ms="3649" started-at="2020-09-10T09:42:53Z" finished-at="2020-09-10T09:42:56Z">
       <class name="com.qa.tests.CountryTests">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.qa.tests.CountryTests@6eebc39e]" name="setUp" is-config="true" duration-ms="6" started-at="2020-09-10T11:42:04Z" finished-at="2020-09-10T11:42:04Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.qa.tests.CountryTests@36d4b5c]" name="setUp" is-config="true" duration-ms="6" started-at="2020-09-10T17:42:53Z" finished-at="2020-09-10T17:42:53Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="loginTest()[pri:0, instance:com.qa.tests.CountryTests@6eebc39e]" name="loginTest" duration-ms="7876" started-at="2020-09-10T11:42:04Z" finished-at="2020-09-10T11:42:12Z">
+        <test-method status="PASS" signature="loginTest()[pri:0, instance:com.qa.tests.CountryTests@36d4b5c]" name="loginTest" duration-ms="3596" started-at="2020-09-10T17:42:53Z" finished-at="2020-09-10T17:42:56Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- loginTest -->
-        <test-method status="PASS" signature="getUserTest()[pri:0, instance:com.qa.tests.CountryTests@6eebc39e]" name="getUserTest" duration-ms="5851" depends-on-groups="user_post" started-at="2020-09-10T11:42:12Z" finished-at="2020-09-10T11:42:18Z">
+        <test-method status="PASS" signature="getUserTest()[pri:0, instance:com.qa.tests.CountryTests@36d4b5c]" name="getUserTest" duration-ms="36" depends-on-groups="user_post" started-at="2020-09-10T17:42:56Z" finished-at="2020-09-10T17:42:56Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getUserTest -->

@@ -14,10 +14,11 @@ public class ExcelUtils {
 	private static XSSFWorkbook ExcelWBook;
 	private static XSSFCell Cell;
 	private static XSSFRow Row;
+	private static String Path;
 
 	// 设置Excel文件路径，方便读取到文件
 	public static void setExcelFile(String Path) throws Exception {
-
+		ExcelUtils.Path = Path;
 		FileInputStream ExcelFile = new FileInputStream(Path);
 		ExcelWBook = new XSSFWorkbook(ExcelFile);
 
@@ -106,13 +107,11 @@ public class ExcelUtils {
 				Cell.setCellValue(Result);
 			}
 			// Constant variables Test Data path and Test Data file name
-			FileOutputStream fileOut = new FileOutputStream(
-					Constants.Path_TestData);
+			FileOutputStream fileOut = new FileOutputStream(Path);
 			ExcelWBook.write(fileOut);
 			// fileOut.flush();
 			fileOut.close();
-			ExcelWBook = new XSSFWorkbook(new FileInputStream(
-					Constants.Path_TestData));
+			ExcelWBook = new XSSFWorkbook(new FileInputStream(Path));
 		} catch (Exception e) {
 
 			

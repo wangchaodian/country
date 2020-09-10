@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" verbose="0" name="Failed suite [Default Suite]">
+  <test name="Testng_learn">
+    <groups>
+      <dependencies>
+        <group depends-on="user_post" name="user_get"/>
+      </dependencies>
+    </groups>
+    <classes>
+      <class name="com.qa.tests.CountryTests"/>
+    </classes>
+  </test> <!-- Testng_learn -->
+</suite> <!-- Failed suite [Default Suite] -->

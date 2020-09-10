@@ -21,8 +21,7 @@ public class TestBase {
 		
 		try {
 			prop = new Properties();
-			FileInputStream fis = new FileInputStream(System.getProperty("user.dir")+
-"\\apidata\\config.properties");
+			FileInputStream fis = new FileInputStream(System.getProperty("D:\\JenkinsNode\\apidata\\config.properties"));
 			prop.load(fis);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
