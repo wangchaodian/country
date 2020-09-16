@@ -129,7 +129,7 @@ public class KeyMethod {
 			authorization = getDataJosn(responseJson,"token");
 		}
 //		System.out.println("token:"+authorization);
-		System.out.println("响应正文：" + responseJson);
+		System.out.println(sTestCaseID+":"+bResult+"-响应正文：" + responseJson);
 
 //		Reporter.log("响应字符串***********："+responseString);
 
@@ -196,7 +196,7 @@ public class KeyMethod {
 		//创建Json对象，把上面字符串序列化成json对象
 		JSONObject responseJson = JSON.parseObject(responseString);
 //		Reporter.log("响应字符串***********："+responseString);
-		System.out.println("响应正文：" + responseJson);
+		System.out.println(sTestCaseID+":"+bResult+"-响应正文：" + responseJson);
 		try {
 			 dataCode = getJosn(responseJson, "code");
 
