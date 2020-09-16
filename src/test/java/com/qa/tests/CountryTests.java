@@ -32,8 +32,8 @@ public class CountryTests extends TestBase {
 	@BeforeClass
 	public void setUp() throws Exception {
 		testBase = new TestBase();
-//		host = prop.getProperty("Host1");   // 线上环境
-		host = prop.getProperty("HOST");   // 测试环境
+//		host = prop.getProperty("Host1");   // 
+		host = prop.getProperty("HOST");   // 
 		
 		excelUrl = prop.getProperty("ExcelUrl");
 		Sheet_Post = prop.getProperty("Sheet_Post");
