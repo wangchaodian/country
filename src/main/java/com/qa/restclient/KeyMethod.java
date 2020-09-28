@@ -11,7 +11,7 @@ import org.testng.Reporter;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.qa.base1.TestBase;
+import com.qa.base.TestBase;
 import com.qa.util.BodyHead;
 import com.qa.utils.fatjson.FastjsonUtils;
 
@@ -30,12 +30,13 @@ public class KeyMethod {
 	public static String interfaceName; // 用例描述
 	public static String st; // post请求参数
 	public static String result; // Result响应正文期望值
-	
-	
+	public static long startTime, endTime;  
+	public static String responseTime;
 
 	static RestClient restClient;
 	static CloseableHttpResponse clos;
 	
+	//读取Excel表中数据进行接口测试
 	public static void excel(String excelUrl,String tableName,String dns) throws Exception {
 
 		// 获得表路径
@@ -91,7 +92,6 @@ public class KeyMethod {
 		}
 	}
 
-
 	//post请求
 	public static void postActions(String tableName,String InterfaceUrl) throws ClientProtocolException, IOException{
 		
@@ -109,12 +109,20 @@ public class KeyMethod {
 			st = parameter;
 		}
 		
-	
+		//接口请求开始时间
+		long currentTimeMillis = System.currentTimeMillis();
+		startTime = currentTimeMillis;
 		
 		// 发送请求
 		clos = restClient.post(InterfaceUrl, st, headermap);
 		//把响应内容存储在字符串对象
 		String responseString = EntityUtils.toString(clos.getEntity(),"UTF-8");
+		//接口请求开始时间
+		long currentTimeMillis1 = System.currentTimeMillis();
+		endTime = currentTimeMillis1;
+		//接口响应时长
+		responseTime = String.valueOf(endTime - startTime);
+		
 //		判断响应结果是否包含期望结果
 		boolean re = responseString.contains(result);
 //		System.out.println(re);
@@ -129,14 +137,16 @@ public class KeyMethod {
 			authorization = getDataJosn(responseJson,"token");
 		}
 //		System.out.println("token:"+authorization);
-		System.out.println(sTestCaseID+":"+bResult+"-响应正文：" + responseJson);
+		System.out.println("接口响应时间为："+responseTime+"--"+sTestCaseID+":"+bResult+"--响应正文：" + responseJson);
 
 //		Reporter.log("响应字符串***********："+responseString);
 
 		// 将响应正文填入dataEngine.xlsx中
-		cl = String.valueOf(responseJson);
-		
+		cl = String.valueOf(responseJson);	
 		ExcelUtils.setCellData(cl, iTestCase, Constants.Col_Clos, tableName);
+		
+		//将响应时长填入表中
+		ExcelUtils.setCellData(responseTime, iTestCase, Constants.Col_ResponseTime, tableName);
 
 		// 将响应状态码填入dataEngine.xlsx中
 		statusCode = clos.getStatusLine().getStatusCode();
@@ -170,7 +180,6 @@ public class KeyMethod {
 	
 	}
 	
-	
 //	get请求方法发送
 	public static void getActions(String tableName,String InterfaceUrl) throws ClientProtocolException, IOException{
 		
@@ -180,11 +189,19 @@ public class KeyMethod {
 		String token = authorization;
 		HashMap<String, String> headermap = BodyHead.headMap("application/x-www-form-urlencoded", token);
 
+		//接口请求开始时间
+		long currentTimeMillis = System.currentTimeMillis();
+		startTime = currentTimeMillis;
 		// 发送请求
 		clos = restClient.get(InterfaceUrl, headermap);
 
 		//把响应内容存储在字符串对象
 		String responseString = EntityUtils.toString(clos.getEntity(),"UTF-8");	
+		//接口请求结束时间
+		long currentTimeMillis1 = System.currentTimeMillis();
+		endTime = currentTimeMillis1;
+		//接口响应时长
+		responseTime = String.valueOf(endTime - startTime);
 //		判断响应结果是否包含期望结果
 		boolean re = responseString.contains(result);
 //		System.out.println(re);
@@ -196,7 +213,7 @@ public class KeyMethod {
 		//创建Json对象，把上面字符串序列化成json对象
 		JSONObject responseJson = JSON.parseObject(responseString);
 //		Reporter.log("响应字符串***********："+responseString);
-		System.out.println(sTestCaseID+":"+bResult+"-响应正文：" + responseJson);
+		System.out.println("接口响应时间为："+responseTime+"--"+sTestCaseID+":"+bResult+"--响应正文：" + responseJson);
 		try {
 			 dataCode = getJosn(responseJson, "code");
 
@@ -206,9 +223,11 @@ public class KeyMethod {
 		}
 //		System.out.println("code = "+dataCode);
 		// 将响应正文填入dataEngine.xlsx中
-		cl = String.valueOf(responseJson);
-		
+		cl = String.valueOf(responseJson);		
 		ExcelUtils.setCellData(cl, iTestCase, Constants.Col_Clos, tableName);
+		
+		//将响应时长填入表中
+		ExcelUtils.setCellData(responseTime, iTestCase, Constants.Col_ResponseTime, tableName);
 
 		// 将响应状态码填入dataEngine.xlsx中
 		statusCode = clos.getStatusLine().getStatusCode();

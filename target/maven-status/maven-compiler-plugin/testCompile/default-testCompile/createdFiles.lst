@@ -1,0 +1,7 @@
+com\qa\test\GetApiTest.class
+com\qa\test\PutApiTest.class
+com\qa\test\CountryTest.class
+com\qa\test\SignUtils.class
+com\qa\test\TjTest.class
+com\qa\test\PostApiCounrty.class
+com\qa\test\DeleteApiTest.class

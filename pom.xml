@@ -82,7 +82,13 @@
     <groupId>org.apache.maven.plugins</groupId>
     <artifactId>maven-compiler-plugin</artifactId>
     <version>3.5.1</version>
-</dependency>
+	</dependency>
+
+  <dependency>
+      <groupId>basic.sunsharp.common</groupId>
+      <artifactId>sunsharp-encrypt</artifactId>
+      <version>0.9.51-RELEASE</version>
+   </dependency>
 	
   </dependencies>
  

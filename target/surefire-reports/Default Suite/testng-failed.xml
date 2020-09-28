@@ -8,7 +8,7 @@
       </dependencies>
     </groups>
     <classes>
-      <class name="com.qa.tests.CountryTests"/>
+      <class name="com.qa.test.CountryTest"/>
     </classes>
   </test> <!-- Testng_learn -->
 </suite> <!-- Failed suite [Default Suite] -->
