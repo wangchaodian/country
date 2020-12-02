@@ -1,24 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="1" passed="1">
+<testng-results skipped="0" failed="0" total="2" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="26226" started-at="2020-09-28T09:50:39Z" finished-at="2020-09-28T09:51:05Z">
+  <suite name="Default suite" duration-ms="10603" started-at="2020-10-22T07:08:36Z" finished-at="2020-10-22T07:08:46Z">
     <groups>
-      <group name="user_post">
-        <method signature="CountryTest.loginTest()[pri:0, instance:com.qa.test.CountryTest@58651fd0]" name="loginTest" class="com.qa.test.CountryTest"/>
-      </group> <!-- user_post -->
+      <group name="post">
+        <method signature="GrowthValueCheck.loginTest()[pri:0, instance:com.qa.test.GrowthValueCheck@5034c75a]" name="loginTest" class="com.qa.test.GrowthValueCheck"/>
+      </group> <!-- post -->
+      <group name="get">
+        <method signature="GrowthValueCheck.getUserTest()[pri:0, instance:com.qa.test.GrowthValueCheck@5034c75a]" name="getUserTest" class="com.qa.test.GrowthValueCheck"/>
+      </group> <!-- get -->
     </groups>
-    <test name="Default test" duration-ms="26226" started-at="2020-09-28T09:50:39Z" finished-at="2020-09-28T09:51:05Z">
-      <class name="com.qa.test.CountryTest">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.qa.test.CountryTest@58651fd0]" name="setUp" is-config="true" duration-ms="6" started-at="2020-09-28T17:50:39Z" finished-at="2020-09-28T17:50:39Z">
+    <test name="Default test" duration-ms="10603" started-at="2020-10-22T07:08:36Z" finished-at="2020-10-22T07:08:46Z">
+      <class name="com.qa.test.GrowthValueCheck">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.qa.test.GrowthValueCheck@5034c75a]" name="setUp" is-config="true" duration-ms="7" started-at="2020-10-22T15:08:36Z" finished-at="2020-10-22T15:08:36Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="loginTest()[pri:0, instance:com.qa.test.CountryTest@58651fd0]" name="loginTest" duration-ms="26211" started-at="2020-09-28T17:50:39Z" finished-at="2020-09-28T17:51:05Z">
+        <test-method status="PASS" signature="loginTest()[pri:0, instance:com.qa.test.GrowthValueCheck@5034c75a]" name="loginTest" duration-ms="8534" started-at="2020-10-22T15:08:36Z" finished-at="2020-10-22T15:08:44Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- loginTest -->
-      </class> <!-- com.qa.test.CountryTest -->
+        <test-method status="PASS" signature="getUserTest()[pri:0, instance:com.qa.test.GrowthValueCheck@5034c75a]" name="getUserTest" duration-ms="2049" depends-on-groups="post" started-at="2020-10-22T15:08:44Z" finished-at="2020-10-22T15:08:46Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getUserTest -->
+      </class> <!-- com.qa.test.GrowthValueCheck -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

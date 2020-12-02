@@ -8,6 +8,7 @@ import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.util.EntityUtils;
 import org.testng.Assert;
 import org.testng.Reporter;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -40,7 +41,7 @@ public class CountryTest extends TestBase {
 		Sheet_Get = prop.getProperty("Sheet_Get");
 	}
 
-	@Test(groups = "user_post",invocationCount = 1)
+	@Test(groups = "user_post",invocationCount = 1,enabled = true)
 	public void loginTest() throws Exception {
 
 		KeyMethod.excel(excelUrl, Sheet_Post, host);
@@ -54,11 +55,11 @@ public class CountryTest extends TestBase {
 		restClient = new RestClient();
 		// 准备请求头信息
 
-		String token = null;
+		String token = "eyJhbGciOiJIUzUxMiJ9.eyJzeXN0ZW1UeXBlIjoiMSIsInNpdGVJZCI6MzYwOTY4LCJ1c2VydHlwZSI6IlVTRVIiLCJ1c2VySWQiOjIxNywiY3JlYXRlZCI6MTYwMTQ1MTQyNzEyNSwidXNlcm5hbWUiOiIxNTY4MDM2NjUzNyJ9.PzNdPdZxtzd-W1UxNsi7PvRYqiSH04nUoQRRIiNcZCpl5tTWXr-s6rBh9tiPr60e8lTF7Kc5TDmphhxXv3dEuA";
 		HashMap<String, String> headermap = BodyHead.headMap("application/x-www-form-urlencoded", token);
 		// 获得body参数
-		String st = BodyHead.st("username=15680366537&password=7c4a8d09ca3762af61e59520943dc26494f8941b");
-		clos = restClient.post(host+"/gateWay/client/countryApi/user/login", st, headermap);
+		String st = BodyHead.st("content=haha111&topicIds=22&imgs=,,https%3A%2F%2Fimage.ycdatas.com%2Fa6d052f0aa4a47a2947cdb1959d9de94.jpg%2C%2C,,");
+		clos = restClient.post(host+"/gateWay/client/countryApi/emotionPost/addEmotionPost", st, headermap);
 		// 验证状态码是不是200
 		int statusCode = clos.getStatusLine().getStatusCode();
 		Assert.assertEquals(statusCode,RESPNSE_STATUS_COOE_200, "响应状态码不是200");
@@ -80,5 +81,12 @@ public class CountryTest extends TestBase {
 		KeyMethod.excel(excelUrl, Sheet_Get, host);
 //		Reporter.log("状态码***********：" + KeyMethod.statusCode, true);
 	}
+	
+	@AfterClass
+	public void loginOut(){
+		System.out.println("----------------");
+		System.out.println("接口测试完成!!!");
+	}
+
 
 }

@@ -73,8 +73,9 @@ public class KeyMethod {
 					//Excel中Result列
 					result = ExcelUtils.getCellData(iTestStep, Constants.Col_TestStepResult, tableName);
 					//发送请求
-					if (tableName.equals("post")) {
+					if (tableName.equals("post") && !interfaceName.equals("获取积分等级Get") ) {
 						postActions(tableName,dns+url);
+						
 					}else{
 						getActions(tableName, dns+url+parameter);
 					}
@@ -95,7 +96,7 @@ public class KeyMethod {
 	//post请求
 	public static void postActions(String tableName,String InterfaceUrl) throws ClientProtocolException, IOException{
 		
-		//建立一个新连接
+		// 建立一个新连接
 		restClient = new RestClient();
 		// 准备请求头信息
 

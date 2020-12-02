@@ -7,6 +7,8 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
 
 public class ExcelUtils {
 
@@ -16,10 +18,12 @@ public class ExcelUtils {
 	private static XSSFRow Row;
 	private static String Path;
 
+	public static OutputStream fileOut = null;
+	public static FileInputStream ExcelFile = null;
 	// 设置Excel文件路径，方便读取到文件
 	public static void setExcelFile(String Path) throws Exception {
 		ExcelUtils.Path = Path;
-		FileInputStream ExcelFile = new FileInputStream(Path);
+		ExcelFile = new FileInputStream(Path);
 		ExcelWBook = new XSSFWorkbook(ExcelFile);
 
 	}
@@ -93,7 +97,7 @@ public class ExcelUtils {
 
 	// 构造一个往单元格写数据的方法，主要是用来写结果pass还是fail
 	public static void setCellData(String Result, int RowNum, int ColNum,
-			String SheetName) {
+			String SheetName) throws IOException {
 
 		try {
 
@@ -107,15 +111,21 @@ public class ExcelUtils {
 				Cell.setCellValue(Result);
 			}
 			// Constant variables Test Data path and Test Data file name
-			FileOutputStream fileOut = new FileOutputStream(Path);
+			fileOut = new FileOutputStream(Path);
 			ExcelWBook.write(fileOut);
-			// fileOut.flush();
-			fileOut.close();
-			ExcelWBook = new XSSFWorkbook(new FileInputStream(Path));
-		} catch (Exception e) {
-
 			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally{
+			try {
+				ExcelFile.close();
+				if (fileOut != null) {
+					fileOut.flush();
+					fileOut.close();
+				}
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
 	}
-
 }
